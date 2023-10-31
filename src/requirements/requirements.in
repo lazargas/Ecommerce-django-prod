@@ -6,5 +6,5 @@ Pillow
 stripe
 boto3
 django-storages
-gunicorn
+gunicorn==19.7.1
 waitress
