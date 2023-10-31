@@ -5,8 +5,10 @@ cd ..
 python3 -m venv venv
 source venv/bin/activate
 venv/bin/python -m pip install pip pip-tools rav --upgrade
-venv/bin/rav run installs
-rav run freeze
+venv/bin/pip-compile src/requirements/requirements.in -o src/requirements.txt
+venv/bin/python -m pip install -r src/requirements.txt
+npm install
+venv/bin/python -m pip freeze
 cd src
 python manage.py collectstatic
 python manage.py migrate
