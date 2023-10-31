@@ -11,5 +11,5 @@ venv/bin/python -m pip install -r src/requirements.txt
 npm install
 venv/bin/python -m pip freeze
 cd src
-python manage.py collectstatic
+python manage.py collectstatic --noinput
 python manage.py migrate
