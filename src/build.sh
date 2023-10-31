@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 #exit on error
 set -o errexit
-apt-get update
-apt-get install -y python3.8
 cd ..
-python3 -m venv venv
+python3.8.9 -m venv venv
 source venv/bin/activate
 venv/bin/python -m pip install pip pip-tools rav --upgrade
 venv/bin/pip-compile src/requirements/requirements.in -o src/requirements.txt
