@@ -15,7 +15,7 @@ def product_sales_pipeline(product_name="Test product", product_price=1000):
         currency="usd"
     )
     stripe_price_id = stripe_price_obj.id
-    base_endpoint = "http://127.0.0.1:8000"
+    base_endpoint = "https://ecommerce-django-akarsh.onrender.com"
     success_url = f"{base_endpoint}/purchases/success/"
     cancel_url = f"{base_endpoint}/purchases/stopped/"
     checkout_session = stripe.checkout.Session.create(
