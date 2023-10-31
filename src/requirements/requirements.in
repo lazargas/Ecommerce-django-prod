@@ -7,3 +7,5 @@ stripe
 boto3
 django-storages
 gunicorn
+waitress
+websocket
