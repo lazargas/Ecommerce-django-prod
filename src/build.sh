@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #exit on error
 set -o errexit
-sudo apt-get update
-sudo apt-get install -y python3.8
+apt-get update
+apt-get install -y python3.8
 cd ..
 python3 -m venv venv
 source venv/bin/activate
