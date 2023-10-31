@@ -2,7 +2,8 @@
 #exit on error
 set -o errexit
 cd ..
-python3.8.9 -m venv venv
+python --version
+python3 -m venv venv
 source venv/bin/activate
 venv/bin/python -m pip install pip pip-tools rav --upgrade
 venv/bin/pip-compile src/requirements/requirements.in -o src/requirements.txt
