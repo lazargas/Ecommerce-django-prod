@@ -10,4 +10,3 @@ npm install
 python -m pip freeze
 python manage.py collectstatic
 python manage.py migrate
-waitress-serve --listen=*:8000 cfehome.wsgi:application
