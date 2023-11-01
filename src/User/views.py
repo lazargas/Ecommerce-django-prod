@@ -3,6 +3,7 @@ from .forms import SignInForm,SignUpForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
 import re
+import time
 # Create your views here.
 
 pattern = r'^([^@]+)@'
@@ -30,14 +31,18 @@ def signin_view(request):
 def signup_view(request):
     context={}
     form = SignUpForm(request.POST or None)
-    if request.method=="POST":
-        email = request.POST["email"]
-        password = request.POST["password"]
-        match = re.match(pattern, email)
-        if match:
-           username=match.group(1)
+
+    if form.is_valid():
+        if request.method=="POST":
+           email = request.POST["email"]
+           password = request.POST["password"]
+           match = re.match(pattern, email)
+           if match:
+            username=match.group(1)
         user = User.objects.create_user(username=username, email=email, password=password)
         user.save()
+        time.sleep(4)
+        print('redirecting...')
         return redirect('/User/signin')
     return render(request,"signup.html")
 

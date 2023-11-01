@@ -36,15 +36,28 @@
         var password = document.getElementById("password").value;
         var confirmPassword = document.getElementById("confirmPassword").value;
 
-        if (password !== confirmPassword) {
-            var popu = document.getElementById("populate");
-            var errorMessage = document.createTextNode("Password do not match");
-            popu.appendChild(errorMessage);
+        if ((password !== confirmPassword) && (password && confirmPassword)) {
+            var ifPopu = document.querySelector(".Popu");
+            if(!ifPopu){
+                var popu = document.getElementById("populate");
+                var errorMessage = document.createTextNode("Password do not match");
+                var divc = document.createElement('div');
+                divc.appendChild(errorMessage);
+                divc.classList.add("Popu");
+                popu.appendChild(divc);
+            }
             return false; // Prevent form submission
         }
-        var popu = document.getElementById("populate");
-        var successMessage = document.createTextNode("Account Created Succesfully");
-        popu.appendChild(successMessage);
+        if(!document.querySelector(".Success")){
+            var popu = document.getElementById("populate");
+            var successMessage = document.createTextNode("Account Created Succesfully");
+            var divs = document.createElement('div');
+            divs.appendChild(successMessage);
+            divs.classList.add("Success");
+            setTimeout(function() {
+            }, 2000);
+            popu.appendChild(successMessage);
+        }
         return true; // Allow form submission
     }
 </script>
